@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Otomata — UTAU 원음설정 도구</title>
+<meta name="description" content="한국어·일본어 UTAU 음원의 원음설정(oto.ini)을 자동으로 초벌 작업하는 데스크톱 도구, Otomata.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 브랜드 팔레트: 로고 기준 */
+  --magenta:#FF2F9E;
+  --ink:#111113;
+  --bg:#FFFFFF;
+  --panel:#F7F7F9;      /* 패널 */
+  --line:#E7E7EC;       /* 괘선 */
+  --text:#111113;
+  --muted:#6E6E7A;
+  --wave:#C9C9D4;       /* 파형 바 */
+  --radius:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif;
+  font-size:16px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--magenta);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+/* ── 헤더 ─────────────────────────── */
+header{
+  position:sticky;top:0;z-index:10;
+  background:color-mix(in srgb,var(--bg) 90%,transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:800;font-size:1.15rem;letter-spacing:-.01em;text-decoration:none}
+.logo .dot{color:var(--magenta)}
+.nav-links{display:flex;gap:26px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:.92rem;transition:color .15s}
+.nav-links a:hover{color:var(--text)}
+.nav-links .btn-s{
+  color:#fff;background:var(--ink);
+  padding:7px 16px;border-radius:999px;font-weight:700;
+}
+.nav-links .btn-s:hover{color:#fff;background:var(--magenta)}
+
+/* ── 히어로 ───────────────────────── */
+.hero{padding:88px 0 64px;text-align:center}
+.eyebrow{
+  display:inline-block;font-size:.8rem;letter-spacing:.14em;
+  color:var(--magenta);margin-bottom:20px;font-weight:500;
+}
+h1{
+  font-size:clamp(2.1rem,5.4vw,3.4rem);
+  font-weight:800;letter-spacing:-.03em;line-height:1.25;
+}
+h1 .hl{color:var(--magenta)}
+.hero p.sub{
+  max-width:560px;margin:22px auto 0;color:var(--muted);font-size:1.05rem;
+}
+.cta-row{display:flex;gap:14px;justify-content:center;margin-top:34px;flex-wrap:wrap}
+.btn{
+  display:inline-block;text-decoration:none;font-weight:700;
+  padding:13px 28px;border-radius:999px;font-size:.98rem;
+  transition:transform .15s,background .15s,border-color .15s;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--magenta);color:#fff}
+.btn-primary:hover{background:#E6218C}
+.btn-ghost{border:1.5px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--magenta);color:var(--magenta)}
+.hero .note{margin-top:14px;font-size:.82rem;color:var(--muted)}
+.hero .shot{margin:56px auto 0;max-width:960px}
+.hero .shot img{
+  width:100%;height:auto;display:block;
+  border-radius:var(--radius);border:1px solid var(--line);
+  box-shadow:0 30px 70px -30px rgba(17,17,19,.35);
+}
+
+/* ── 섹션 공통 ─────────────────────── */
+.section{padding:88px 0}
+.section-head{text-align:center;margin-bottom:48px}
+.section-head h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-.02em}
+.section-head p{color:var(--muted);margin-top:10px}
+
+/* ── 기능 ─────────────────────────── */
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 26px;
+  transition:border-color .15s;
+}
+.card:hover{border-color:var(--magenta)}
+.card .tag{
+  font-size:.72rem;letter-spacing:.1em;color:var(--magenta);
+  display:block;margin-bottom:12px;
+}
+.card h3{font-size:1.08rem;font-weight:700;margin-bottom:10px}
+.card p{color:var(--muted);font-size:.93rem}
+
+/* ── 흐름 ─────────────────────────── */
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:center}
+.flow .step{padding:26px 18px}
+.flow .k{
+  font-size:.8rem;color:var(--magenta);display:block;margin-bottom:10px;
+}
+.flow h3{font-size:1.02rem;font-weight:700;margin-bottom:8px}
+.flow p{color:var(--muted);font-size:.9rem}
+.flow .step + .step{border-left:1px solid var(--line)}
+
+/* ── 베타 안내 ─────────────────────── */
+.beta{
+  background:var(--ink);color:#fff;border-radius:var(--radius);
+  padding:38px 34px;
+}
+.beta h2{font-size:1.3rem;font-weight:800;margin-bottom:14px}
+.beta h2 .dot{color:var(--magenta)}
+.beta p{color:#B9B9C4;font-size:.95rem;margin-bottom:10px}
+.beta p strong{color:#fff;font-weight:600}
+.beta .cta-row{justify-content:flex-start;margin-top:24px}
+.beta .btn-ghost{border-color:#fff;color:#fff}
+.beta .btn-ghost:hover{border-color:var(--magenta);color:var(--magenta)}
+
+/* ── 푸터 ─────────────────────────── */
+footer{border-top:1px solid var(--line);padding:44px 0 56px;font-size:.88rem;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot a{color:var(--muted);text-decoration:none}
+.foot a:hover{color:var(--magenta);text-decoration:underline}
+.foot ul{list-style:none;display:flex;gap:22px;flex-wrap:wrap}
+
+@media (max-width:720px){
+  .features{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .flow .step + .step{border-left:none;border-top:1px solid var(--line)}
+  .nav-links{gap:16px}
+  .nav-links li:nth-child(1),.nav-links li:nth-child(2){display:none}
+  .section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#">Otomata<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#features">기능</a></li>
+      <li><a href="#beta">베타 안내</a></li>
+      <li><a href="mailto:contact@otomata.app">문의</a></li>
+      <!-- TODO: 일본어 페이지 준비되면 활성화 <li><a href="/ja/">日本語</a></li> -->
+      <li><a class="btn-s" href="#beta">베타 다운로드</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- ══ 히어로 ══════════════════════════ -->
+<section class="hero wrap">
+  <span class="eyebrow mono">UTAU OTO.INI LABELING TOOL</span>
+  <h1>원음설정,<br>직접 찍는 시간은 줄이고<br><span class="hl">다듬는 시간</span>만 남기세요</h1>
+  <p class="sub">
+    Otomata는 한국어·일본어 UTAU 음원의 원음설정(oto.ini)을
+    자동으로 초벌 작업하는 데스크톱 도구입니다.
+    파형 위에서 바로 확인하고, 다듬고, 내보내세요.
+  </p>
+  <div class="cta-row">
+    <!-- TODO: GitHub Releases 링크로 교체 -->
+    <a class="btn btn-primary" href="#beta">베타 다운로드</a>
+    <a class="btn btn-ghost" href="#features">기능 살펴보기</a>
+  </div>
+  <p class="note">Windows · 무료 베타 8/22 – 8/31</p>
+  <div class="shot">
+    <img src="main.png" alt="Otomata 앱 화면 — 스펙트로그램 위에서 원음설정 경계를 확인·편집하는 모습" loading="lazy">
+  </div>
+</section>
+
+<!-- ══ 기능 ═══════════════════════════ -->
+<section id="features" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>라벨링의 반복 작업을 도구에게</h2>
+      <p>수백 개의 wav에 같은 작업을 반복하는 대신, 초벌은 Otomata가 합니다.</p>
+    </div>
+    <div class="features">
+      <div class="card">
+        <span class="tag mono">AUTO LABELING</span>
+        <h3>자동 원음설정</h3>
+        <p>학습된 모델이 오프셋·자음부·선행발성·오버랩을 초벌로 배치합니다. 제작자는 결과를 확인하고 필요한 곳만 손보면 됩니다.</p>
+      </div>
+      <div class="card">
+        <span class="tag mono">WAVEFORM EDITOR</span>
+        <h3>파형 위에서 바로 편집</h3>
+        <p>파형과 스펙트로그램을 보며 파라미터를 드래그로 조정합니다. 수치 입력과 미리듣기를 오가는 번거로움이 없습니다.</p>
+      </div>
+      <div class="card">
+        <span class="tag mono">KO · JA</span>
+        <h3>한국어·일본어 지원</h3>
+        <p>두 언어 모두 CV-VC와 VCV(연속음) 음원을 지원합니다. 한국어와 일본어 음원을 오가며 작업하는 제작 환경에 맞췄습니다.</p>
+      </div>
+      <div class="card">
+        <span class="tag mono">OTO.INI COMPATIBLE</span>
+        <h3>기존 작업과 호환</h3>
+        <p>표준 oto.ini 형식을 그대로 읽고 씁니다. 쓰던 에디터에서 만든 음원을 불러와 이어서 작업할 수 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 흐름 ═══════════════════════════ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>세 단계면 충분합니다</h2>
+    </div>
+    <div class="flow">
+      <div class="step">
+        <span class="k mono">01 — LOAD</span>
+        <h3>음원 불러오기</h3>
+        <p>녹음한 wav 폴더 또는 기존 oto.ini를 엽니다.</p>
+      </div>
+      <div class="step">
+        <span class="k mono">02 — LABEL</span>
+        <h3>자동 라벨링</h3>
+        <p>모델이 전체 파일의 원음설정을 초벌로 작성합니다.</p>
+      </div>
+      <div class="step">
+        <span class="k mono">03 — REFINE</span>
+        <h3>다듬고 내보내기</h3>
+        <p>파형에서 확인·조정한 뒤 oto.ini로 저장합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 베타 안내 ═══════════════════════ -->
+<section id="beta" class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="beta">
+      <h2>베타 테스트 진행 중<span class="dot">.</span></h2>
+      <p><span class="mono" style="color:#fff">2026. 8. 22 — 8. 31</span> · Otomata는 현재 무료 베타로 배포 중입니다. 사용 중 발견한 오류나 개선 의견을 보내주시면 정식 버전에 반영됩니다.</p>
+      <p><strong>설치 시 참고:</strong> 처음 실행할 때 Windows SmartScreen 경고가 나타날 수 있습니다. 베타 버전은 아직 코드 서명이 없어 나타나는 현상으로, "추가 정보 → 실행"을 누르면 진행됩니다.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/matax2bi/otomata/releases/latest" rel="noopener">베타 다운로드 (Windows)</a>
+        <a class="btn btn-ghost" href="mailto:contact@otomata.app">피드백 보내기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ 푸터 ═══════════════════════════ -->
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div style="font-weight:800;color:var(--text);margin-bottom:6px">Otomata<span style="color:var(--magenta)">.</span></div>
+      <div>© 2026 새온 · contact@otomata.app</div>
+    </div>
+    <ul>
+      <!-- TODO: 노션 처리방침 링크로 교체 -->
+      <li><a href="#">개인정보 처리방침</a></li>
+      <li><a href="https://x.com/otomata_app" rel="noopener">X (@otomata_app)</a></li>
+      <!-- TODO: GitHub 저장소 공개 시 추가 <li><a href="#">GitHub</a></li> -->
+    </ul>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
