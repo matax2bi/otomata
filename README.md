@@ -1,4 +1,6 @@
-# Otomata
+<p align="center">
+  <img src="assets/header.png" alt="Otomata" width="720">
+</p>
 
 UTAU 보이스뱅크 **자동 원음설정(oto.ini)** 프로그램 — AI 기반 경계 검출로 oto.ini를 자동 생성합니다.
 
