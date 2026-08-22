@@ -28,6 +28,10 @@ AI-powered automatic oto.ini generator for UTAU voicebanks.
 >
 > **GPU install:** the GPU installer is split into 3 files due to size limits. Download **all three** into the same folder, then run `Setup-GPU.exe`.
 
+**파일이 큰 이유:** Otomata는 설치 후 아무것도 추가로 내려받지 않도록 AI 추론 모델과 실행에 필요한 모든 구성요소(ONNX Runtime, Python 런타임, Qt 라이브러리)를 내장합니다. GPU 버전은 여기에 CUDA·cuDNN 라이브러리(이것만 수 GB)까지 동봉해 CUDA를 따로 설치할 필요가 없게 했고, 그래서 용량이 커져 3개 파일로 나눠 배포합니다.
+
+*Why so large: the AI model and the full runtime (ONNX Runtime, Python, Qt) are bundled so the app works offline out of the box; the GPU build also bundles the CUDA/cuDNN libraries so you don't have to install CUDA yourself.*
+
 ### ⚠ Windows SmartScreen 경고가 뜨는 경우
 
 베타 버전은 코드 서명이 없어 설치 시 파란색 SmartScreen 경고가 뜰 수 있습니다.
