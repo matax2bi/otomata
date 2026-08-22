@@ -18,10 +18,15 @@ AI-powered automatic oto.ini generator for UTAU voicebanks.
 
 | 파일 | 대상 |
 |---|---|
-| `Otomata-x.x.x-Setup-GPU.exe` | **NVIDIA GPU** 사용자 (CUDA 가속, 용량 큼) |
+| `Otomata-x.x.x-Setup-GPU.exe` + `-GPU-1.bin` + `-GPU-2.bin` | **NVIDIA GPU** 사용자 (CUDA 가속, 용량 큼) |
 | `Otomata-x.x.x-Setup-CPU.exe` | GPU가 없거나 NVIDIA가 아닌 경우 (용량 작음) |
 
 어느 것을 받을지 모르겠다면 → **CPU 버전**을 받으세요. 어느 버전이든 기능은 동일하며, GPU 버전은 추론 속도만 빠릅니다.
+
+> **GPU 버전 설치:** 용량 제한 때문에 파일이 3개로 나뉘어 있습니다.
+> `Setup-GPU.exe`, `Setup-GPU-1.bin`, `Setup-GPU-2.bin` **세 파일을 모두 받아 같은 폴더에 둔 뒤** `Setup-GPU.exe`를 실행하면 자동으로 합쳐져 설치됩니다.
+>
+> **GPU install:** the GPU installer is split into 3 files due to size limits. Download **all three** into the same folder, then run `Setup-GPU.exe`.
 
 ### ⚠ Windows SmartScreen 경고가 뜨는 경우
 
@@ -58,3 +63,9 @@ and Claude is listed in the credits for the sake of accuracy.
 - 데이터 기여: 혜성 [@comet_UTAU](https://x.com/comet_UTAU)
 - 개발 협업: Claude (Anthropic)
 - Built with PySide6 · librosa · matplotlib · ONNX Runtime
+
+## 라이선스 / License
+
+Otomata는 **독점(proprietary) 소프트웨어**입니다. 개인·상업적 사용은 자유이며, 프로그램으로 만든 결과물(oto.ini, 보이스뱅크 등)은 상업적으로 이용할 수 있습니다. 다만 프로그램의 수정·역공학·재배포는 금지됩니다. 자세한 내용은 [LICENSE.md](LICENSE.md)를 참고하세요.
+
+Otomata is proprietary software — free for personal and commercial **use** (your output is yours), but modification, reverse engineering, and redistribution are prohibited. See [LICENSE.md](LICENSE.md).
