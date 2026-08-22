@@ -31,8 +31,8 @@ If Windows SmartScreen appears, click **"More info" → "Run anyway"**.
 
 ## 주요 기능 / Features
 
-- 한국어(CV·VC / 연속음 VCV) · 일본어(단독음 / 연속음) 보이스뱅크 자동 원음설정
-- 스펙트로그램 + 경계 시각 편집, 재생 미리듣기
+- 한국어(CV-VC / VCV) · 일본어(CV-VC / VCV) 보이스뱅크 자동 원음설정
+- 스펙트로그램 + 경계 시각 편집
 - BPM 기반 / BPM 없는 녹음 모두 지원
 - oto.ini 내보내기 · 자동저장 · 편집 상태(oto.omt) 보존
 
