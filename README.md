@@ -38,8 +38,19 @@ If Windows SmartScreen appears, click **"More info" → "Run anyway"**.
 - BPM 기반 / BPM 없는 녹음 모두 지원
 - oto.ini 내보내기 · 자동저장 · 편집 상태(oto.omt) 보존
 
+## AI 사용 고지 / AI Disclosure
+
+이 프로그램의 코드 일부는 **AI(Claude)와 함께 제작**되었습니다.
+AI가 작성한 코드를 피하고 싶으신 분들을 위해 미리 알려드리며,
+사실관계를 정확히 밝히기 위해 크레딧에도 Claude를 포함했습니다.
+
+Parts of this program were developed together with AI (Claude).
+This notice is provided in advance for those who prefer to avoid AI-written code,
+and Claude is listed in the credits for the sake of accuracy.
+
 ## 크레딧 / Credits
 
 - 제작: [@matax2bi](https://x.com/matax2bi)
 - 데이터 기여: 혜성 [@comet_UTAU](https://x.com/comet_UTAU)
+- 개발 협업: Claude (Anthropic)
 - Built with PySide6 · librosa · matplotlib · ONNX Runtime
