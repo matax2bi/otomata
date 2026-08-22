@@ -8,6 +8,10 @@ AI-powered automatic oto.ini generator for UTAU voicebanks.
 
 > 🧪 **베타 버전입니다.** 오류가 있을 수 있으며, 피드백은 앱 내 *도움말 → 의견 보내기 / 버그 신고*로 보내주세요.
 
+<p align="center">
+  <img src="assets/screenshot.png" alt="Otomata 스크린샷 — 스펙트로그램 위에서 원음설정 경계를 확인·편집" width="900">
+</p>
+
 ## 다운로드 / Download
 
 👉 **[Releases](../../releases)** 페이지에서 최신 설치파일을 받으세요.
