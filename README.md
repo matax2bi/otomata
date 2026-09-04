@@ -6,7 +6,11 @@ UTAU 보이스뱅크 **자동 원음설정(oto.ini)** 프로그램 — AI 기반
 
 AI-powered automatic oto.ini generator for UTAU voicebanks.
 
-> 🧪 **베타 버전입니다.** 오류가 있을 수 있으며, 피드백은 앱 내 *도움말 → 의견 보내기 / 버그 신고*로 보내주세요.
+> ⏳ **무료 베타가 종료되었습니다 (2026. 8. 22 – 8. 31).** 베타 빌드는 더 이상 실행되지 않습니다.
+> **정식 버전은 2026년 10월 중 출시 예정**입니다 — 소식은 [@matax2bi](https://x.com/matax2bi)와 [otomata.app](https://otomata.app)에서 알려드립니다.
+> 베타에 참여해 주신 분들, 보내주신 오류 신고와 의견 모두 감사합니다. 정식 버전에 반영되고 있습니다.
+>
+> *The free beta has ended (Aug 22–31, 2026) and beta builds no longer run. The full release is planned for October 2026 — follow [@matax2bi](https://x.com/matax2bi) or [otomata.app](https://otomata.app) for updates.*
 
 <p align="center">
   <img src="assets/screenshot.png" alt="Otomata 스크린샷 — 스펙트로그램 위에서 원음설정 경계를 확인·편집" width="900">
@@ -14,7 +18,9 @@ AI-powered automatic oto.ini generator for UTAU voicebanks.
 
 ## 다운로드 / Download
 
-👉 **[Releases](../../releases)** 페이지에서 최신 설치파일을 받으세요.
+현재 받을 수 있는 빌드가 없습니다. [Releases](../../releases)에 남아 있는 베타 설치파일은 기간이 만료되어 실행되지 않습니다. 아래 설명은 정식 버전 배포 시에도 같은 구성이므로 참고용으로 남겨둡니다.
+
+*No downloadable build right now — the beta installers on the Releases page have expired. The notes below describe the packaging the full release will also use.*
 
 | 파일 | 대상 |
 |---|---|
