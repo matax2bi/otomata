@@ -86,6 +86,8 @@ AI-powered oto.ini tool for Japanese and Korean UTAU voicebanks.
 
 - 제작: 새온 (Saeon) · [@otomata_lab](https://x.com/otomata_lab) · 개발자 [@matax2bi](https://x.com/matax2bi)
 - 데이터 기여: 혜성 [@comet_UTAU](https://x.com/comet_UTAU) 외 데이터 제공자 여러분
+- 학습 데이터 출처: 이 프로그램의 AI 모델은 과학기술정보통신부의 재원으로 한국지능정보사회진흥원의 지원을 받아 구축된 「다음색 가이드보컬 데이터」를 활용하여 학습했습니다. 이 데이터는 [AI 허브](https://aihub.or.kr)에서 내려받을 수 있습니다.
+  *Training data: the AI model was trained using the "Multi-timbre Guide Vocal Data", built with funding from the Ministry of Science and ICT and support from the National Information Society Agency (NIA) of Korea, available at [AI Hub](https://aihub.or.kr).*
 - 개발 협업: Claude (Anthropic)
 - Built with PySide6 · librosa · matplotlib · ONNX Runtime
 
