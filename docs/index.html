@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Otomata — AI 자동 원음설정 · AI oto.ini tool for UTAU</title>
-<meta name="description" content="한국어·일본어 UTAU 음원의 원음설정(oto.ini)을 AI 로 자동 배치하는 Windows 도구. AI-powered oto.ini tool for Japanese and Korean UTAU voicebanks.">
+<meta name="description" content="한국어·일본어 UTAU 음원의 원음설정(oto.ini)을 AI로 자동 배치하는 Windows 도구. AI-powered oto.ini tool for Japanese and Korean UTAU voicebanks.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,6 +110,21 @@ h1 .hl{color:var(--magenta)}
 .plan .btn{text-align:center}
 .fine{font-size:.82rem;color:var(--muted);margin-top:16px;text-align:center}
 
+/* ── 발매 전 안내(10/16 발매 — 그 뒤에는 스크립트가 숨김) ── */
+.launch{display:inline-block;margin:0 0 18px;padding:5px 14px;border-radius:999px;font-size:.86rem;font-weight:700;
+  color:var(--magenta);background:color-mix(in srgb,var(--magenta) 10%,var(--bg));border:1px solid color-mix(in srgb,var(--magenta) 35%,var(--bg))}
+.plan .launch-when{font-size:.88rem;font-weight:700;color:var(--ink);margin:0 0 10px;text-align:center}
+html.launched .js-prelaunch{display:none !important}
+dialog.notice{margin:auto;border:0;border-radius:14px;padding:28px 26px 22px;max-width:min(420px,calc(100vw - 32px));width:100%;
+  color:var(--text);background:var(--bg);box-shadow:0 30px 80px -20px rgba(17,17,19,.45);text-align:center}
+dialog.notice::backdrop{background:rgba(17,17,19,.45)}
+dialog.notice h3{font-size:1.2rem;font-weight:800;letter-spacing:-.01em;margin-bottom:10px}
+dialog.notice h3 .hl{color:var(--magenta)}
+dialog.notice p{color:var(--muted);font-size:.94rem}
+dialog.notice .btns{display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+dialog.notice .btn{padding:10px 22px;font-size:.92rem;cursor:pointer;font-family:inherit}
+dialog.notice button.btn{border:0}
+
 /* ── 구매 안내 · 요구 사항 · FAQ ── */
 .howto{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .howto .card .k{font-size:.8rem;color:var(--magenta);display:block;margin-bottom:8px}
@@ -165,18 +180,19 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;font-size:.88rem;col
 
 <!-- ══ 히어로 ══ -->
 <section class="hero wrap">
-  <span class="eyebrow mono">AI OTO.INI TOOL FOR UTAU</span>
+  <span class="eyebrow mono">AI OTO.INI TOOL FOR UTAU</span><br>
+  <span class="launch js-prelaunch"><span data-l="ko">2026년 10월 16일(금) 발매</span><span data-l="en">Launching Fri, Oct 16, 2026</span><span data-l="ja">2026年10月16日(金) 発売</span></span>
   <h1 data-l="ko">원음설정,<br>직접 찍는 시간은 줄이고<br><span class="hl">다듬는 시간</span>만 남기세요</h1>
   <h1 data-l="en">Stop setting oto by hand.<br>Let AI do the <span class="hl">first draft</span>.</h1>
   <h1 data-l="ja">原音設定、<br>打つ時間は減らして<br><span class="hl">整える時間</span>だけに</h1>
-  <p class="sub" data-l="ko">Otomata 는 한국어·일본어 UTAU 음원의 원음설정(oto.ini)을 AI 로 자동 배치하는 Windows 도구입니다. 파일명으로 에일리어스를 만들고, 녹음을 듣고 경계를 찾아 몇 분 만에 초안을 완성합니다.</p>
+  <p class="sub" data-l="ko">Otomata는 한국어·일본어 UTAU 음원의 원음설정(oto.ini)을 AI로 자동 배치하는 Windows 도구입니다. 파일명으로 에일리어스를 만들고, 녹음을 듣고 경계를 찾아 몇 분 만에 초안을 완성합니다.</p>
   <p class="sub" data-l="en">Otomata is a Windows tool that sets up oto.ini for Japanese and Korean UTAU voicebanks with AI. It builds aliases from your file names, listens to each recording and places every alias — a full draft in minutes.</p>
   <p class="sub" data-l="ja">Otomata は日本語・韓国語 UTAU 音源の原音設定(oto.ini)を AI で自動配置する Windows ツールです。ファイル名からエイリアスを作り、録音を聴いて境界を見つけ、数分で下書きを仕上げます。</p>
   <div class="cta-row">
-    <a class="btn btn-primary js-buy" href="#pricing"><span data-l="ko">₩30,000 에 구매하기</span><span data-l="en">Buy for ₩30,000</span><span data-l="ja">₩30,000 で購入</span></a>
+    <a class="btn btn-primary js-buy" href="#pricing"><span data-l="ko">₩30,000에 구매하기</span><span data-l="en">Buy for ₩30,000</span><span data-l="ja">₩30,000 で購入</span></a>
     <a class="btn btn-ghost js-download" href="#how"><span data-l="ko">무료로 내려받기</span><span data-l="en">Download free</span><span data-l="ja">無料でダウンロード</span></a>
   </div>
-  <p class="note" data-l="ko">Windows 10/11 · <b>출시 기념가 12/31 까지</b> · 1회 구매 · 업데이트 평생 무료</p>
+  <p class="note" data-l="ko">Windows 10/11 · <b>출시 기념가 12/31까지</b> · 1회 구매 · 업데이트 평생 무료</p>
   <p class="note" data-l="en">Windows 10/11 · <b>Launch price until Dec 31</b> · One-time purchase · Free updates for life</p>
   <p class="note" data-l="ja">Windows 10/11 · <b>発売記念価格 12/31 まで</b> · 買い切り · アップデート永久無料</p>
   <div class="shot">
@@ -193,7 +209,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;font-size:.88rem;col
       <h2 data-l="ko">라벨링의 반복 작업을 도구에게</h2>
       <h2 data-l="en">Leave the repetitive work to the tool</h2>
       <h2 data-l="ja">繰り返し作業はツールに</h2>
-      <p data-l="ko">수백 개의 wav 에 같은 작업을 반복하는 대신, 초안은 Otomata 가 만듭니다.</p>
+      <p data-l="ko">수백 개의 wav에 같은 작업을 반복하는 대신, 초안은 Otomata가 만듭니다.</p>
       <p data-l="en">Instead of repeating the same work on hundreds of wavs, let Otomata make the draft.</p>
       <p data-l="ja">何百もの wav に同じ作業を繰り返す代わりに、下書きは Otomata が作ります。</p>
     </div>
@@ -201,14 +217,14 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;font-size:.88rem;col
       <div class="card">
         <span class="tag mono">AUTO OTOING</span>
         <h3 data-l="ko">AI 자동 원음설정</h3><h3 data-l="en">AI auto oto setting</h3><h3 data-l="ja">AI 自動原音設定</h3>
-        <p data-l="ko">학습된 모델이 녹음의 음소 경계를 찾아 오프셋 · 오버랩 · 선행발성 · 자음부 · 블랭크를 배치합니다. 전체, 고른 파일, 같은 wav 만 다시 돌릴 수 있습니다.</p>
+        <p data-l="ko">학습된 모델이 녹음의 음소 경계를 찾아 오프셋 · 오버랩 · 선행발성 · 자음부 · 블랭크를 배치합니다. 전체, 고른 파일, 같은 wav만 다시 돌릴 수 있습니다.</p>
         <p data-l="en">A trained model finds phoneme boundaries and places offset, overlap, preutterance, consonant and cutoff. Run it on everything, selected files, or one wav again.</p>
         <p data-l="ja">学習済みモデルが音素境界を見つけ、オフセット・オーバーラップ・先行発声・子音部・ブランクを配置します。全体・選択ファイル・同じ wav だけの再推論も可能です。</p>
       </div>
       <div class="card">
         <span class="tag mono">ALIAS GENERATION</span>
         <h3 data-l="ko">파일명으로 에일리어스 생성</h3><h3 data-l="en">Aliases from file names</h3><h3 data-l="ja">ファイル名からエイリアス生成</h3>
-        <p data-l="ko">oto.ini 가 없어도 됩니다. 일본어 CV-VC · VCV(가나 · 로마자), 한국어 CV-VC · CVC · 연속음을 지원합니다.</p>
+        <p data-l="ko">oto.ini가 없어도 됩니다. 일본어 CV-VC · VCV(가나 · 로마자), 한국어 CV-VC · CVC · 연속음을 지원합니다.</p>
         <p data-l="en">No oto.ini needed. Supports Japanese CV-VC and VCV (kana or romaji) and Korean CV-VC, CVC and VCV.</p>
         <p data-l="ja">oto.ini がなくても大丈夫。日本語 CV-VC・VCV(かな・ローマ字)、韓国語 CV-VC・CVC・連続音に対応。</p>
       </div>
@@ -222,7 +238,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;font-size:.88rem;col
       <div class="card">
         <span class="tag mono">OTO.INI · LAB</span>
         <h3 data-l="ko">기존 작업과 호환 · LAB 편집기</h3><h3 data-l="en">Compatible · LAB editor</h3><h3 data-l="ja">既存データと互換 · LAB エディタ</h3>
-        <p data-l="ko">표준 oto.ini 를 그대로 읽고 씁니다. .lab 음소 경계를 보고 고치는 LAB 모드도 들어 있습니다.</p>
+        <p data-l="ko">표준 oto.ini를 그대로 읽고 씁니다. .lab 음소 경계를 보고 고치는 LAB 모드도 들어 있습니다.</p>
         <p data-l="en">Reads and writes standard oto.ini. Includes LAB mode to view and edit .lab phoneme labels.</p>
         <p data-l="ja">標準の oto.ini をそのまま読み書き。.lab 音素境界を表示・編集する LAB モード付き。</p>
       </div>
@@ -245,7 +261,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;font-size:.88rem;col
         <p data-l="ko">단추 하나로 모든 에일리어스의 초안을 만듭니다.</p><p data-l="en">One click drafts every alias.</p><p data-l="ja">ボタン一つで全エイリアスの下書きを作成。</p></div>
       <div class="step"><span class="k mono">03 — REFINE</span>
         <h3 data-l="ko">다듬고 내보내기</h3><h3 data-l="en">Refine &amp; export</h3><h3 data-l="ja">整えて書き出し</h3>
-        <p data-l="ko">파형에서 확인 · 조정한 뒤 oto.ini 로 저장합니다.</p><p data-l="en">Check and adjust on the waveform, then save oto.ini.</p><p data-l="ja">波形で確認・調整して oto.ini に保存。</p></div>
+        <p data-l="ko">파형에서 확인 · 조정한 뒤 oto.ini로 저장합니다.</p><p data-l="en">Check and adjust on the waveform, then save oto.ini.</p><p data-l="ja">波形で確認・調整して oto.ini に保存。</p></div>
     </div>
   </div>
 </section>
@@ -272,15 +288,16 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;font-size:.88rem;col
       <div class="plan paid">
         <div class="name" data-l="ko">Otomata 라이선스</div><div class="name" data-l="en">Otomata License</div><div class="name" data-l="ja">Otomata ライセンス</div>
         <div class="price">₩30,000<s>₩50,000</s></div>
-        <div class="when" data-l="ko">출시 기념가 · 12/31 까지</div><div class="when" data-l="en">Launch price · until Dec 31</div><div class="when" data-l="ja">発売記念価格 · 12/31 まで</div>
+        <div class="when" data-l="ko">출시 기념가 · 12/31까지</div><div class="when" data-l="en">Launch price · until Dec 31</div><div class="when" data-l="ja">発売記念価格 · 12/31 まで</div>
         <div class="sub" data-l="ko">1회 구매 · 구독 아님</div><div class="sub" data-l="en">One-time purchase · not a subscription</div><div class="sub" data-l="ja">買い切り · サブスクではありません</div>
         <ul data-l="ko"><li>무료 기능 전부</li><li><b>AI 자동 원음설정</b></li><li>키 하나로 PC 3대</li><li>업데이트 평생 무료</li><li>만든 원음설정 · 음원은 상업적 이용 자유</li></ul>
         <ul data-l="en"><li>Everything in Free</li><li><b>AI Auto Otoing</b></li><li>One key, up to 3 PCs</li><li>Free updates for life</li><li>Use your otos and voicebanks commercially</li></ul>
         <ul data-l="ja"><li>無料版のすべて</li><li><b>AI 自動原音設定</b></li><li>1 キーで PC 3 台まで</li><li>アップデート永久無料</li><li>作った原音設定・音源は商用利用 OK</li></ul>
+        <div class="launch-when js-prelaunch"><span data-l="ko">10월 16일(금)부터 구매할 수 있어요</span><span data-l="en">On sale from Fri, Oct 16</span><span data-l="ja">10月16日(金)から購入できます</span></div>
         <a class="btn btn-primary js-buy" href="#pricing"><span data-l="ko">구매하기</span><span data-l="en">Buy now</span><span data-l="ja">購入する</span></a>
       </div>
     </div>
-    <p class="fine" data-l="ko">결제는 판매 대행사 Lemon Squeezy 가 처리합니다(세금 포함 원화 표시, 해외 카드는 카드사 환율로 청구). 업데이트 평생 무료는 구매한 판에 적용되며, 자동 LAB 정렬처럼 따로 나오는 판은 포함되지 않습니다. <a href="terms.html#ko">이용약관 · 환불</a></p>
+    <p class="fine" data-l="ko">결제는 판매 대행사 Lemon Squeezy가 처리합니다(세금 포함 원화 표시, 해외 카드는 카드사 환율로 청구). 업데이트 평생 무료는 구매한 판에 적용되며, 자동 LAB 정렬처럼 따로 나오는 판은 포함되지 않습니다. <a href="terms.html#ko">이용약관 · 환불</a></p>
     <p class="fine" data-l="en">Payments are handled by Lemon Squeezy, our Merchant of Record (prices in KRW incl. tax; cards in other currencies are converted by your card issuer). Free updates apply to the edition you buy; separately sold editions such as automatic LAB alignment are not included. <a href="terms.html#en">Terms &amp; refunds</a></p>
     <p class="fine" data-l="ja">決済は販売代行の Lemon Squeezy が行います(税込ウォン表示、円などのカードはカード会社のレートで請求)。アップデート永久無料は購入したエディションが対象で、自動 LAB 整列など別売りのエディションは含まれません。<a href="terms.html#en">利用規約・返金</a></p>
   </div>
@@ -311,7 +328,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;font-size:.88rem;col
     </div>
     <div class="req">
       <h3 data-l="ko">사용 환경</h3><h3 data-l="en">Requirements</h3><h3 data-l="ja">動作環境</h3>
-      <ul data-l="ko"><li>Windows 10 / 11 (64비트)</li><li>CPU 판: 어느 PC 에서나 (설치 파일 약 660 MB)</li><li>GPU 판: NVIDIA 그래픽카드 + 최신 드라이버(CUDA 12) — 더 빠릅니다 (약 2.5 GB, 파일 3개)</li><li>처음 설치할 때 'Windows의 PC 보호' 창이 뜨면 <b>추가 정보 → 실행</b>을 눌러 주세요.</li></ul>
+      <ul data-l="ko"><li>Windows 10 / 11 (64비트)</li><li>CPU 판: 어느 PC에서나 (설치 파일 약 660 MB)</li><li>GPU 판: NVIDIA 그래픽카드 + 최신 드라이버(CUDA 12) — 더 빠릅니다 (약 2.5 GB, 파일 3개)</li><li>처음 설치할 때 'Windows의 PC 보호' 창이 뜨면 <b>추가 정보 → 실행</b>을 눌러 주세요.</li></ul>
       <ul data-l="en"><li>Windows 10 / 11 (64-bit)</li><li>CPU edition: any PC (installer ≈ 660 MB)</li><li>GPU edition: NVIDIA card + recent driver (CUDA 12) — faster (≈ 2.5 GB, 3 files)</li><li>If “Windows protected your PC” appears, click <b>More info → Run anyway</b>.</li></ul>
       <ul data-l="ja"><li>Windows 10 / 11(64 ビット)</li><li>CPU 版: どの PC でも(インストーラー約 660 MB)</li><li>GPU 版: NVIDIA グラボ + 最新ドライバ(CUDA 12)— より高速(約 2.5 GB、3 ファイル)</li><li>「Windows によって PC が保護されました」と出たら <b>詳細情報 → 実行</b> を押してください。</li></ul>
     </div>
@@ -325,11 +342,11 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;font-size:.88rem;col
     <div class="faq" data-l="ko">
       <details><summary>어떤 음원에 쓸 수 있나요?</summary><p>파일명에 발음이 적힌 한국어 · 일본어 UTAU 음원입니다. 다른 언어는 직접 편집만 됩니다.</p></details>
       <details><summary>결과가 완벽한가요?</summary><p>초안을 빠르게 만들어 주는 도구입니다. 결과를 확인하고 필요한 곳을 손으로 다듬어 주세요.</p></details>
-      <details><summary>GPU 가 꼭 필요한가요?</summary><p>아니요. CPU 판도 같은 결과를 내며 시간만 더 걸립니다.</p></details>
-      <details><summary>PC 를 바꾸면요?</summary><p>도움말 → 라이선스에서 예전 PC 를 해제하고 새 PC 에 키를 넣으면 됩니다. PC 가 고장 나 해제하지 못했다면 문의해 주세요.</p></details>
+      <details><summary>GPU가 꼭 필요한가요?</summary><p>아니요. CPU 판도 같은 결과를 내며 시간만 더 걸립니다.</p></details>
+      <details><summary>PC를 바꾸면요?</summary><p>도움말 → 라이선스에서 예전 PC를 해제하고 새 PC에 키를 넣으면 됩니다. PC가 고장 나 해제하지 못했다면 문의해 주세요.</p></details>
       <details><summary>환불할 수 있나요?</summary><p>구매 후 7일 이내라면 키를 등록했더라도 이유와 관계없이 전액 환불됩니다. 14일 이내라도 키를 등록하지 않았다면 전액 환불되며, 설명대로 작동하지 않는 경우는 그 뒤에도 환불됩니다. 자세한 내용은 <a href="terms.html#ko">이용약관</a>을 참고하세요.</p></details>
-      <details><summary>AI 를 어떻게 쓰나요?</summary><p>자동 원음설정은 음소 경계를 찾는 AI 모델이 합니다. 모델은 개발자 본인 데이터, 서면 동의를 받은 데이터 제공자의 녹음 · 라벨, 이용이 허락된 공개 학습용 데이터(AI 허브 「다음색 가이드보컬 데이터」)로 학습했으며, 웹에서 무단으로 모은 데이터는 쓰지 않았습니다. 목소리를 만들거나 흉내 내지 않습니다. 또한 프로그램 코드의 일부는 AI(Claude)와 함께 작성했습니다 — AI 가 작성한 코드를 피하고 싶은 분들을 위해 미리 알려 드립니다.</p></details>
-      <details><summary>macOS 에서 되나요?</summary><p>지금은 Windows 만 지원합니다.</p></details>
+      <details><summary>AI를 어떻게 쓰나요?</summary><p>자동 원음설정은 음소 경계를 찾는 AI 모델이 합니다. 모델은 개발자 본인 데이터, 서면 동의를 받은 데이터 제공자의 녹음 · 라벨, 이용이 허락된 공개 학습용 데이터(AI 허브 「다음색 가이드보컬 데이터」)로 학습했으며, 웹에서 무단으로 모은 데이터는 쓰지 않았습니다. 목소리를 만들거나 흉내 내지 않습니다. 또한 프로그램 코드의 일부는 AI(Claude)와 함께 작성했습니다 — AI가 작성한 코드를 피하고 싶은 분들을 위해 미리 알려 드립니다.</p></details>
+      <details><summary>macOS에서 되나요?</summary><p>지금은 Windows만 지원합니다.</p></details>
       <details><summary>내 음성이 서버로 가나요?</summary><p>아니요. 녹음 · oto.ini · lab 파일은 PC 안에서만 처리됩니다. <a href="privacy.html">개인정보 처리방침</a></p></details>
     </div>
     <div class="faq" data-l="en">
@@ -383,12 +400,37 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;font-size:.88rem;col
   </div>
 </footer>
 
+<dialog class="notice" id="launch-notice" aria-labelledby="launch-notice-title">
+  <h3 id="launch-notice-title"><span data-l="ko"><span class="hl">10월 16일(금)</span> 발매</span><span data-l="en">Launching <span class="hl">Fri, Oct 16</span></span><span data-l="ja"><span class="hl">10月16日(金)</span> 発売</span></h3>
+  <p data-l="ko">Otomata 라이선스는 2026년 10월 16일(금)부터 구매할 수 있어요. 출시 소식은 X <b>@otomata_lab</b>에서 알려 드릴게요.</p>
+  <p data-l="en">The Otomata license goes on sale on Friday, October 16, 2026. We'll announce the launch on X <b>@otomata_lab</b>.</p>
+  <p data-l="ja">Otomata ライセンスは 2026年10月16日(金) から購入できます。発売のお知らせは X <b>@otomata_lab</b> でお届けします。</p>
+  <div class="btns">
+    <a class="btn btn-ghost" href="https://x.com/otomata_lab" rel="noopener" target="_blank"><span data-l="ko">X에서 소식 받기</span><span data-l="en">Follow on X</span><span data-l="ja">X でお知らせを受け取る</span></a>
+    <button type="button" class="btn btn-primary js-close"><span data-l="ko">확인</span><span data-l="en">OK</span><span data-l="ja">OK</span></button>
+  </div>
+</dialog>
+
 <script>
 /* 링크는 여기 한 곳에서 바꾼다 */
 const BUY_URL = '';          // ✏️ Lemon Squeezy 결제 링크(상점 승인 뒤) — 비어 있으면 가격 섹션으로
 const DOWNLOAD_URL = 'https://github.com/matax2bi/otomata/releases/latest';
+const LAUNCH_AT = Date.parse('2026-10-16T00:00:00+09:00');   // 발매(판매 개시) 시각 — 그 전에는 구매 단추가 발매 안내 창을 띄운다
 
-if (BUY_URL) document.querySelectorAll('.js-buy').forEach(a => { a.href = BUY_URL; a.rel = 'noopener'; });
+/* 발매 전(또는 결제 링크가 아직 없으면): 구매 단추 = 발매일 안내 창, 발매 안내 문구 보임. 발매 뒤 결제 링크가 있으면 문구를 숨기고 결제로 */
+const PRELAUNCH = Date.now() < LAUNCH_AT || !BUY_URL;
+if (!PRELAUNCH) document.documentElement.classList.add('launched');
+const notice = document.getElementById('launch-notice');
+if (PRELAUNCH && notice && typeof notice.showModal === 'function') {
+  document.querySelectorAll('.js-buy').forEach(a => a.addEventListener('click', e => { e.preventDefault(); notice.showModal(); }));
+  notice.querySelector('.js-close').addEventListener('click', () => notice.close());
+  notice.addEventListener('click', e => { if (e.target === notice) notice.close(); });   // 바깥(배경) 누르면 닫기
+} else if (PRELAUNCH) {   // <dialog> 가 없는 옛 브라우저
+  const MSG = {ko: 'Otomata 라이선스는 2026년 10월 16일(금)부터 구매할 수 있어요.', en: 'The Otomata license goes on sale on Friday, October 16, 2026.',
+               ja: 'Otomata ライセンスは 2026年10月16日(金) から購入できます。'};
+  document.querySelectorAll('.js-buy').forEach(a => a.addEventListener('click', e => { e.preventDefault(); alert(MSG[document.documentElement.dataset.lang] || MSG.en); }));
+}
+if (BUY_URL && !PRELAUNCH) document.querySelectorAll('.js-buy').forEach(a => { a.href = BUY_URL; a.rel = 'noopener'; });
 if (DOWNLOAD_URL) document.querySelectorAll('.js-download').forEach(a => { a.href = DOWNLOAD_URL; a.rel = 'noopener'; });
 
 /* 언어: 저장된 선택 → 브라우저 언어 → 한국어 */
