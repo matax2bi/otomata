@@ -402,9 +402,9 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;font-size:.88rem;col
 
 <dialog class="notice" id="launch-notice" aria-labelledby="launch-notice-title">
   <h3 id="launch-notice-title"><span data-l="ko"><span class="hl">10월 16일(금)</span> 발매</span><span data-l="en">Launching <span class="hl">Fri, Oct 16</span></span><span data-l="ja"><span class="hl">10月16日(金)</span> 発売</span></h3>
-  <p data-l="ko">Otomata 라이선스는 2026년 10월 16일(금)부터 구매할 수 있어요. 출시 소식은 X <b>@otomata_lab</b>에서 알려 드릴게요.</p>
-  <p data-l="en">The Otomata license goes on sale on Friday, October 16, 2026. We'll announce the launch on X <b>@otomata_lab</b>.</p>
-  <p data-l="ja">Otomata ライセンスは 2026年10月16日(金) から購入できます。発売のお知らせは X <b>@otomata_lab</b> でお届けします。</p>
+  <p data-l="ko">Otomata 2.0은 2026년 10월 16일(금)에 공개돼요. 그날부터 내려받기와 라이선스 구매가 가능합니다. 출시 소식은 X <b>@otomata_lab</b>에서 알려 드릴게요.</p>
+  <p data-l="en">Otomata 2.0 launches on Friday, October 16, 2026 — downloads and license sales open that day. We'll announce the launch on X <b>@otomata_lab</b>.</p>
+  <p data-l="ja">Otomata 2.0 は 2026年10月16日(金) に公開します。その日からダウンロードとライセンスの購入ができます。発売のお知らせは X <b>@otomata_lab</b> でお届けします。</p>
   <div class="btns">
     <a class="btn btn-ghost" href="https://x.com/otomata_lab" rel="noopener" target="_blank"><span data-l="ko">X에서 소식 받기</span><span data-l="en">Follow on X</span><span data-l="ja">X でお知らせを受け取る</span></a>
     <button type="button" class="btn btn-primary js-close"><span data-l="ko">확인</span><span data-l="en">OK</span><span data-l="ja">OK</span></button>
@@ -419,16 +419,18 @@ const LAUNCH_AT = Date.parse('2026-10-16T00:00:00+09:00');   // 발매(판매 �
 
 /* 발매 전(또는 결제 링크가 아직 없으면): 구매 단추 = 발매일 안내 창, 발매 안내 문구 보임. 발매 뒤 결제 링크가 있으면 문구를 숨기고 결제로 */
 const PRELAUNCH = Date.now() < LAUNCH_AT || !BUY_URL;
+const PRE_DOWNLOAD = Date.now() < LAUNCH_AT;   // 발매 전에는 정식 릴리스가 없어 releases/latest 가 404 — 내려받기 단추도 안내 창
 if (!PRELAUNCH) document.documentElement.classList.add('launched');
 const notice = document.getElementById('launch-notice');
 if (PRELAUNCH && notice && typeof notice.showModal === 'function') {
   document.querySelectorAll('.js-buy').forEach(a => a.addEventListener('click', e => { e.preventDefault(); notice.showModal(); }));
+  if (PRE_DOWNLOAD) document.querySelectorAll('.js-download').forEach(a => a.addEventListener('click', e => { e.preventDefault(); notice.showModal(); }));
   notice.querySelector('.js-close').addEventListener('click', () => notice.close());
   notice.addEventListener('click', e => { if (e.target === notice) notice.close(); });   // 바깥(배경) 누르면 닫기
 } else if (PRELAUNCH) {   // <dialog> 가 없는 옛 브라우저
-  const MSG = {ko: 'Otomata 라이선스는 2026년 10월 16일(금)부터 구매할 수 있어요.', en: 'The Otomata license goes on sale on Friday, October 16, 2026.',
-               ja: 'Otomata ライセンスは 2026年10月16日(金) から購入できます。'};
-  document.querySelectorAll('.js-buy').forEach(a => a.addEventListener('click', e => { e.preventDefault(); alert(MSG[document.documentElement.dataset.lang] || MSG.en); }));
+  const MSG = {ko: 'Otomata 2.0은 2026년 10월 16일(금)에 공개돼요.', en: 'Otomata 2.0 launches on Friday, October 16, 2026.',
+               ja: 'Otomata 2.0 は 2026年10月16日(金) に公開します。'};
+  document.querySelectorAll(PRE_DOWNLOAD ? '.js-buy, .js-download' : '.js-buy').forEach(a => a.addEventListener('click', e => { e.preventDefault(); alert(MSG[document.documentElement.dataset.lang] || MSG.en); }));
 }
 if (BUY_URL && !PRELAUNCH) document.querySelectorAll('.js-buy').forEach(a => { a.href = BUY_URL; a.rel = 'noopener'; });
 if (DOWNLOAD_URL) document.querySelectorAll('.js-download').forEach(a => { a.href = DOWNLOAD_URL; a.rel = 'noopener'; });
