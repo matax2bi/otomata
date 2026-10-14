@@ -31,14 +31,14 @@ AI-powered oto.ini tool for Japanese and Korean UTAU voicebanks.
 
 | 파일 | 대상 |
 |---|---|
-| `Otomata-x.x.x-Setup-GPU.exe` + `-GPU-1.bin` + `-GPU-2.bin` | **NVIDIA GPU** 사용자 (CUDA 가속, 약 2.5 GB) |
-| `Otomata-x.x.x-Setup-CPU.exe` | GPU가 없거나 NVIDIA가 아닌 경우 (약 660 MB) |
+| `Otomata-x.x.x-Setup-GPU.exe` + `-GPU-1.bin` | **NVIDIA GPU** 사용자 (CUDA 가속, 약 1.4 GB) |
+| `Otomata-x.x.x-Setup-CPU.exe` | GPU가 없거나 NVIDIA가 아닌 경우 (약 145 MB) |
 
 어느 것을 받을지 모르겠다면 → **CPU 판**을 받으세요. 결과는 같고 GPU 판은 속도만 빠릅니다.
 
-> **GPU 판 설치:** 용량 제한 때문에 파일이 3개로 나뉘어 있습니다. **세 파일을 모두 같은 폴더에 받은 뒤** `Setup-GPU.exe`를 실행하세요.
+> **GPU 판 설치:** 용량 제한 때문에 파일이 2개로 나뉘어 있습니다. **두 파일을 모두 같은 폴더에 받은 뒤** `Setup-GPU.exe`를 실행하세요.
 >
-> *GPU edition: download **all three files** into the same folder, then run `Setup-GPU.exe`.*
+> *GPU edition: download **both files** into the same folder, then run `Setup-GPU.exe`.*
 
 설치한 뒤에는 앱이 새 버전을 알려 주고, 바뀐 파일만 받아 업데이트합니다.
 *After installation the app checks for updates and installs them for you.*
