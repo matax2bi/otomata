@@ -20,6 +20,14 @@ a:hover{color:var(--magenta)}
 :focus-visible{outline:2px solid var(--magenta);outline-offset:3px;border-radius:4px}
 .wrap{max-width:760px;margin:0 auto;padding:0 20px}
 
+/* 10/14 줄바꿈: 한국어는 어절(띄어쓰기) 단위로만 — '몇 분 만 / 에' 처럼 낱글자가 다음 줄로 떨어지지 않게. 긴 영문 · 주소는 넘치면 끊고,
+   끝 줄 한 단어(고아) 줄이기는 text-wrap:pretty(지원 브라우저) */
+:lang(ko){word-break:keep-all}
+:lang(ja){word-break:auto-phrase}   /* 일본어: 문절 단위(지원 브라우저 — Chrome 119+) */
+body{overflow-wrap:break-word}
+td,.plan{overflow-wrap:anywhere}   /* 좁은 화면(320px)의 표 칸 · 가격 카드는 어절 안에서도 끊어 넘치지 않게(머리 칸 th 는 어절 유지) */
+p,li,h1,h2,h3,summary,td,th,dd,dt{text-wrap:pretty}
+
 header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 90%,transparent);
   backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
