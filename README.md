@@ -66,7 +66,7 @@ AI-powered oto.ini tool for Japanese and Korean UTAU voicebanks.
 ## 주요 기능 / Features
 
 - 파일명으로 에일리어스 자동 생성 — 일본어 CV-VC · VCV(가나 · 로마자), 한국어 CV-VC · CVC · 연속음(VCV)
-- AI 경계 추론으로 오프셋 · 오버랩 · 선행발성 · 자음부 · 블랭크 자동 배치(전체 · 고른 파일 · 같은 wav 만 다시)
+- AI 경계 추론으로 오프셋 · 오버랩 · 선행발성 · 자음부 · 컷오프 자동 배치(전체 · 고른 파일 · 같은 wav 만 다시)
 - 스펙트로그램 · 파형 위에서 마커를 끌어 편집, 실행 취소 · 단축키
 - 표준 oto.ini 읽기 · 쓰기, 편집 상태(.omt)로 이어서 작업, BPM 있는 / 없는 녹음 모두 지원
 - LAB 모드 — .lab 음소 경계 보기 · 직접 편집
