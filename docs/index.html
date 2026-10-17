@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://otomata.app/">
+<script>/* 다른 사이트가 이 페이지를 iframe 으로 끼워 넣으면(사칭 · 클릭재킹) 가리고 원래 주소로 빠져나간다 — GitHub Pages 는 X-Frame-Options 헤더를 보낼 수 없어서 */
+if (window.top !== window.self) { document.documentElement.style.display = 'none'; try { window.top.location.replace(window.self.location.href); } catch (e) {} }</script>
 <title>Otomata — AI 자동 원음설정 · AI oto.ini tool for UTAU</title>
 <meta name="description" content="한국어·일본어 UTAU 음원의 원음설정(oto.ini)을 AI로 자동 배치하는 Windows 도구. AI-powered oto.ini tool for Japanese and Korean UTAU voicebanks.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -138,6 +141,15 @@ dialog.notice button.btn{border:0}
 .req{margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;font-size:.93rem}
 .req h3{font-size:1rem;margin-bottom:8px}
 .req ul{margin-left:1.2em;color:var(--muted)}
+.req.safe ul b{color:var(--text)}
+.req.safe{border-left:4px solid var(--magenta)}
+.hash{margin-top:12px;color:var(--muted)}
+.hash summary{cursor:pointer;font-weight:700;color:var(--text)}
+.hash p{margin-top:8px}
+.hash code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.86em;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:1px 5px;white-space:nowrap}
+.hash-list{margin-top:10px;display:grid;gap:8px;font-size:.82rem}
+.hash-list .nm{color:var(--text);font-weight:500}
+.hash-list .hv{display:block;word-break:break-all;user-select:all}
 .faq{max-width:760px;margin:0 auto}
 .faq details{border-bottom:1px solid var(--line);padding:16px 4px}
 .faq summary{cursor:pointer;font-weight:700;list-style:none}
@@ -339,6 +351,22 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;font-size:.88rem;col
       <ul data-l="en"><li>Windows 10 / 11 (64-bit)</li><li>CPU edition: any PC (installer ≈ 145 MB)</li><li>GPU edition: NVIDIA card + recent driver (CUDA 12) — faster (≈ 1.4 GB, 2 files)</li><li>If “Windows protected your PC” appears, click <b>More info → Run anyway</b>.</li></ul>
       <ul data-l="ja"><li>Windows 10 / 11(64 ビット)</li><li>CPU 版: どの PC でも(インストーラー約 145 MB)</li><li>GPU 版: NVIDIA グラボ + 最新ドライバ(CUDA 12)— より高速(約 1.4 GB、2 ファイル)</li><li>「Windows によって PC が保護されました」と出たら <b>詳細情報 → 実行</b> を押してください。</li></ul>
     </div>
+    <!-- 공식 배포처 · 파일 확인(10/17): 사칭 사이트 · 가짜 설치 파일 대비. 해시는 GitHub 릴리스 API 의 digest 를 그대로 보여 준다(릴리스마다 손으로 고칠 필요 없음) -->
+    <div class="req safe" id="official">
+      <h3 data-l="ko">공식 배포처</h3><h3 data-l="en">Official sources</h3><h3 data-l="ja">公式配布元</h3>
+      <ul data-l="ko"><li>설치 파일은 <b>이 사이트(otomata.app)</b>와 <b>GitHub(github.com/matax2bi/otomata)</b>에서만 배포합니다.</li><li>라이선스는 <b>Lemon Squeezy 결제 페이지(saeon.lemonsqueezy.com)</b>에서만 판매합니다.</li><li>다른 곳에서 받은 설치 파일이나 키, '크랙' 파일은 가짜이며 악성 코드가 들어 있을 수 있습니다.</li></ul>
+      <ul data-l="en"><li>Installers are distributed only on <b>this site (otomata.app)</b> and <b>GitHub (github.com/matax2bi/otomata)</b>.</li><li>Licenses are sold only through the <b>Lemon Squeezy checkout (saeon.lemonsqueezy.com)</b>.</li><li>Installers, keys or “cracks” from anywhere else are fake and may contain malware.</li></ul>
+      <ul data-l="ja"><li>インストーラーは<b>このサイト(otomata.app)</b>と <b>GitHub(github.com/matax2bi/otomata)</b>でのみ配布しています。</li><li>ライセンスは <b>Lemon Squeezy の決済ページ(saeon.lemonsqueezy.com)</b>でのみ販売しています。</li><li>それ以外の場所で入手したインストーラー・キー・「クラック」は偽物で、マルウェアが含まれている可能性があります。</li></ul>
+      <details class="hash">
+        <summary><span data-l="ko">받은 파일이 진짜인지 확인하기 (SHA-256)</span><span data-l="en">Verify your download (SHA-256)</span><span data-l="ja">ダウンロードしたファイルの確認(SHA-256)</span></summary>
+        <p data-l="ko">파일이 있는 폴더에서 PowerShell을 열고 <code>Get-FileHash 파일이름</code>을 실행해, 나온 값이 아래와 같은지 확인하세요.</p>
+        <p data-l="en">Open PowerShell in the download folder, run <code>Get-FileHash &lt;file name&gt;</code>, and check that the value matches the list below.</p>
+        <p data-l="ja">ファイルのあるフォルダーで PowerShell を開き、<code>Get-FileHash ファイル名</code> を実行して、表示された値が下と同じか確認してください。</p>
+        <div class="hash-list mono" id="hash-list" aria-live="polite">
+          <span data-l="ko">불러오는 중…</span><span data-l="en">Loading…</span><span data-l="ja">読み込み中…</span>
+        </div>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -441,6 +469,36 @@ if (PRELAUNCH && notice && typeof notice.showModal === 'function') {
 }
 if (BUY_URL && !PRELAUNCH) document.querySelectorAll('.js-buy').forEach(a => { a.href = BUY_URL; a.rel = 'noopener'; });
 if (DOWNLOAD_URL) document.querySelectorAll('.js-download').forEach(a => { a.href = DOWNLOAD_URL; a.rel = 'noopener'; });
+
+/* 설치 파일 SHA-256: 펼칠 때 한 번만 GitHub 릴리스 API 에서 받는다(비로그인 API 는 IP 당 시간 60회라 방문마다 부르지 않음).
+   실패하면 릴리스 페이지(각 파일 옆에 sha256 표시)로 안내. */
+const RELEASE_API = 'https://api.github.com/repos/matax2bi/otomata/releases/latest';
+const hashBox = document.getElementById('hash-list');
+const hashDetails = hashBox && hashBox.closest('details');
+if (hashDetails) hashDetails.addEventListener('toggle', async () => {
+  if (!hashDetails.open || hashBox.dataset.loaded) return;
+  hashBox.dataset.loaded = '1';
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  try {
+    const r = await fetch(RELEASE_API, {headers: {Accept: 'application/vnd.github+json'}});
+    if (!r.ok) throw new Error(r.status);
+    const rel = await r.json();
+    const files = (rel.assets || []).filter(a => /\.(exe|bin)$/i.test(a.name) && /^sha256:[0-9a-f]{64}$/.test(a.digest || ''));
+    if (!files.length) throw new Error('no digest');
+    hashBox.replaceChildren(el('div', 'nm', rel.tag_name || ''), ...files.map(a => {
+      const row = el('div'); row.append(el('span', 'nm', a.name), el('span', 'hv', a.digest.slice(7).toUpperCase())); return row;
+    }));
+  } catch (e) {
+    const msg = {ko: ['목록을 불러오지 못했어요. ', 'GitHub 릴리스 페이지', '에서 각 파일 옆의 sha256 값을 확인해 주세요.'],
+                 en: ['Could not load the list. Check the sha256 next to each file on the ', 'GitHub release page', '.'],
+                 ja: ['一覧を読み込めませんでした。', 'GitHub のリリースページ', 'で各ファイル横の sha256 を確認してください。']};
+    hashBox.replaceChildren(...Object.entries(msg).map(([l, [a, b, c]]) => {
+      const s = el('span'); s.dataset.l = l;
+      const link = el('a', null, b); link.href = DOWNLOAD_URL; link.rel = 'noopener';
+      s.append(a, link, c); return s;
+    }));
+  }
+});
 
 /* 언어: 저장된 선택 → 브라우저 언어 → 한국어 */
 const LANGS = ['ko', 'en', 'ja'];
