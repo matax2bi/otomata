@@ -93,6 +93,9 @@ AI-powered oto.ini tool for Japanese and Korean UTAU voicebanks.
 
 ## 라이선스 / License
 
+**© 2026 새온 (Saeon). All rights reserved.** 프로그램 · AI 모델 · 디자인에 대한 권리는 새온에 있습니다.
+*All rights to the program, AI models and design belong to Saeon.*
+
 Otomata는 **독점(proprietary) 소프트웨어**입니다. 프로그램으로 만든 결과물(oto.ini, 음원 등)은 사용자의 것이며 상업적으로 이용할 수 있습니다. 프로그램의 수정 · 역설계 · 재배포와 키 공유는 금지됩니다. 자세한 내용은 [LICENSE.md](LICENSE.md)와 [이용약관](https://otomata.app/terms.html)을 참고하세요.
 
 *Otomata is proprietary software. Your output is yours and may be used commercially; modifying, reverse engineering or redistributing the program and sharing keys are prohibited. See [LICENSE.md](LICENSE.md) and the [Terms of Use](https://otomata.app/terms.html).*
