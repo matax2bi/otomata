@@ -19,11 +19,11 @@ AI-powered oto.ini tool for Japanese and Korean UTAU voicebanks.
 프로그램은 **무료**입니다. 음원 불러오기 · 보기 · 재생 · 직접 편집 · oto.ini 내보내기 · LAB 편집은 키 없이 됩니다.
 **라이선스 키**가 있으면 AI 자동 원음설정이 열립니다.
 
-- **출시 기념가 ₩30,000** (2026년 12월 31일까지 · 이후 정가 ₩50,000) — 1회 구매, 구독 아님
+- **출시 기념가 ₩10,000** (2026년 12월 31일까지 · 이후 정가 ₩30,000) — 1회 구매, 구독 아님
 - 키 하나로 PC 3대 · 업데이트 평생 무료 · 만든 원음설정과 음원은 상업적 이용 자유
 - 구매 · 환불 규정: [otomata.app](https://otomata.app) · [이용약관](https://otomata.app/terms.html)
 
-*The app is free. A license key (one-time ₩30,000 launch price until Dec 31, 2026, then ₩50,000) unlocks AI Auto Otoing — up to 3 PCs, free updates for life. Buy at [otomata.app](https://otomata.app/?lang=en).*
+*The app is free. A license key (one-time ₩10,000 launch price until Dec 31, 2026, then ₩30,000) unlocks AI Auto Otoing — up to 3 PCs, free updates for life. Buy at [otomata.app](https://otomata.app/?lang=en).*
 
 ## 다운로드 / Download
 
