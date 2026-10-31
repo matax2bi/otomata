@@ -27,7 +27,7 @@
 - 라이선스 확인 · 보호 장치(난독화 등)의 우회 또는 제거
 - 내장 모델 · 데이터를 프로그램 외부에서 추출 · 사용하는 행위
 
-**LGPL 구성요소 예외:** 프로그램에 들어 있는 LGPL 구성요소(Qt / PySide6 / shiboken6, libsndfile, libsoxr)에는 이 조의 제한이 적용되지 않습니다. 사용자는 이 라이브러리 파일들을 자신이 쓰려고 수정하거나 다른 버전으로 바꿀 수 있고, 그 수정을 디버깅하는 데 필요한 범위에서 프로그램을 역설계할 수 있습니다. 이 구성요소들 자체의 재배포는 각 라이선스(LGPL)를 따릅니다. 이 예외는 그 밖의 부분(Otomata 자체 코드 · 내장 모델)에는 적용되지 않습니다.
+**LGPL 구성요소 예외:** 프로그램에 들어 있는 LGPL 구성요소(Qt / PySide6 / shiboken6, libsndfile, libsoxr)에는 이 조의 제한이 적용되지 않습니다. 사용자는 이 라이브러리 파일들을 자신이 쓰려고 수정하거나 다른 버전으로 바꿀 수 있고, 그 수정을 디버깅하는 데 필요한 범위에서 프로그램을 역설계할 수 있습니다. 이 구성요소들 자체의 재배포는 각 라이선스(LGPL)를 따릅니다. 이 예외는 그 밖의 부분(Otomata 자체 코드 · 내장 모델 · NVIDIA CUDA · cuDNN 런타임)에는 적용되지 않습니다.
 
 ## 4. 보증 부인과 책임 제한
 
@@ -66,6 +66,6 @@ LGPL 구성요소의 해당 버전 소스 코드는, 그 버전의 마지막 배
 - **Free to use:** you may install and use the program for personal or commercial purposes. Viewing, playback, manual editing, oto.ini export and LAB editing need no key.
 - **License key:** AI Auto Otoing requires a paid license key — a one-time purchase that can be activated on up to **3 PCs**. Keys are personal and may not be shared, resold or transferred. One online activation is needed; the key is re-checked about every 7 days when online. Free updates for life for the edition you bought. Refunds: within 7 days for any reason, within 14 days if never activated, or if it does not work as described (Terms of Use, section 7).
 - **Your output** (oto.ini, .lab, voicebanks, etc.) belongs to **you** and may be used commercially.
-- **You may not** modify, reverse-engineer, decompile, redistribute, resell, rent or share the program or any part of it, bypass license checks or protection measures, or extract the bundled models. **Exception:** you may modify or replace the bundled LGPL libraries (Qt/PySide6/shiboken6, libsndfile, libsoxr) and reverse-engineer the program as needed to debug such modifications; those libraries may be redistributed under their own licenses.
+- **You may not** modify, reverse-engineer, decompile, redistribute, resell, rent or share the program or any part of it, bypass license checks or protection measures, or extract the bundled models. **Exception:** you may modify or replace the bundled LGPL libraries (Qt/PySide6/shiboken6, libsndfile, libsoxr) and reverse-engineer the program as needed to debug such modifications; those libraries may be redistributed under their own licenses. This exception does not cover the rest of the program (Otomata's own code, the bundled models, or the NVIDIA CUDA/cuDNN runtime).
 - Provided **"AS IS"**; liability is limited to the amount you paid, as far as the law allows. See the [Disclaimer](https://otomata.app/disclaimer.html).
 - Third-party components keep their own licenses, which this agreement does not restrict. The full list and license texts are in `THIRD_PARTY_NOTICES.txt` in the installation folder. Main components: PySide6/Qt (LGPL-3.0), libsndfile and libsoxr (LGPL-2.1), ONNX Runtime (MIT), librosa (ISC), NumPy/SciPy (BSD), Numba, matplotlib, cryptography, Lucide, Pretendard (OFL-1.1), the PyArmor runtime, and NVIDIA CUDA/cuDNN in the GPU edition. Source code for the exact LGPL versions included is available on request at contact@otomata.app for at least three years.
